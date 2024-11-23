@@ -1,7 +1,8 @@
 #First, just write a game in Ruby! Work in what you can, otherwise just start with spaghetti nonsense. We can clean up later.
-require_relative 'lib/player'
+require './lib/tictactoe_play'
 
 player = Player.new
+
 
 # player = "X"
 # opponent = "O"
@@ -30,7 +31,7 @@ player = Player.new
 
 #   def make_a_move()
 #     while player_move = gets.chomp
-#       if player_move.match(/^[0-2],[0-2]$/)
+#       if player_move.match(/^[0-2],[0-2]$/) 
 #         puts "Valid"
 #         break
 #       else
