@@ -22,7 +22,8 @@ module Game
 
   def play()
     while player_move = gets.chomp
-      if player_move == "pussy" #check
+      if player_move.match(/^[0-2],[0-2]$/)
+        puts "Valid"
         break
       else
         puts "Please write a valid move in the following format: 0, 1 OR 0,1"
