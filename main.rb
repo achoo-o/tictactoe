@@ -9,6 +9,7 @@ class Player
     puts ('Do you want to be naughts (O) or crosses (X)?')
     while marker = gets.chomp.downcase
       if self.marker_valid?(marker) then break end
+      puts ("Please type 'o', 'x, 'naughts', or 'crosses'.")
     end
     marker
   end
