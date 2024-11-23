@@ -13,11 +13,7 @@ class Player
   end
 
   def marker_valid?(marker)
-    if ['naughts', 'crosses', 'x', 'o'].include? marker
-      true
-    else
-      false
-    end
+    ['naughts', 'crosses', 'x', 'o'].include? marker
   end
 
   attr_accessor :marker
