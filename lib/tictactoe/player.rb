@@ -17,6 +17,7 @@ class Player
     return self.set_marker(input)
   end
 
+  #setting attributes
   def set_marker(input)
     if input == 'o' or input == 'naughts' then 'O' else 'X' end
   end
