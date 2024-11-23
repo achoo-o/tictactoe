@@ -2,9 +2,14 @@
 require './lib/tictactoe_play'
 
 first_player = Player.new
-puts ("Thanks! You've chosen #{first_player.marker_name}.")
+puts ("Thanks! Player #1, you've chosen #{first_player.marker_name}.")
 second_player = Player.new(first_player.marker)
 puts ("Player #2, you'll be #{second_player.marker_name}.")
+puts "\n"
+puts "###############"
+puts "  LET'S PLAY!  "
+puts "###############"
+puts "\n"
 
 # player = "X"
 # opponent = "O"
