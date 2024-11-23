@@ -1,6 +1,10 @@
 class Player
-  def initialize()
-    @marker = self.choose_marker
+  def initialize(marker = nil)
+    if !marker
+      @marker = self.choose_marker
+    else
+      puts "yeehaw"
+    end
   end
 
   def choose_marker()
