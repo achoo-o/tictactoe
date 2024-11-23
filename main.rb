@@ -24,9 +24,8 @@ def Play()
     if player_move == "pussy" #check
       break
     else
-      puts "Please write a valid move in the following format:"
-      puts "0, 1 OR 0,1"
-      puts "...Where 0,0 is the top left position, and 2,2 is the bottom right."
+      puts "Please write a valid move in the following format: 0, 1 OR 0,1"
+      puts "REMINDER: 0,0 is the top left position, and 2,2 is the bottom right."
     end
   end
 end
