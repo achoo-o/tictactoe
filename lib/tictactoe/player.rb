@@ -1,11 +1,11 @@
 class Player
   def initialize(marker = nil)
-    if !marker
+    if !marker #first player
       @marker = self.choose_marker
-      @marker_name = self.set_marker_name(@marker)
-    else
-      puts "yeehaw"
+    else #second player
+      @marker = set_opposite_marker(marker)
     end
+    @marker_name = self.set_marker_name(@marker)
   end
 
   def choose_marker()
@@ -19,6 +19,10 @@ class Player
 
   def set_marker(input)
     if input == 'o' or input == 'naughts' then 'O' else 'X' end
+  end
+
+  def set_opposite_marker(input)
+    if input == 'o' then 'x' else 'o' end
   end
 
   def set_marker_name(marker)
