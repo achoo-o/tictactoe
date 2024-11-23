@@ -2,6 +2,7 @@
 require './lib/tictactoe_play'
 
 first_player = Player.new
+second_player = Player.new(first_player.marker)
 
 
 # player = "X"
