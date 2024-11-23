@@ -5,7 +5,7 @@ class Player
 
   def choose_marker()
     puts ('Do you want to be naughts (O) or crosses (X)?')
-    while input = gets.chomp.downcase
+    while input = gets.chomp.downcase.strip
       if ['naughts', 'crosses', 'x', 'o'].include? input then break end
       puts ("Please type 'o', 'x, 'naughts', or 'crosses'.")
     end
