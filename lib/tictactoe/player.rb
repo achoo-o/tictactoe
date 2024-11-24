@@ -14,7 +14,7 @@ class Player
       if ['naughts', 'crosses', 'x', 'o'].include? input then break end
       puts ("Please type 'o', 'x, 'naughts', or 'crosses'.")
     end
-    return self.set_marker(input)
+    self.set_marker(input)
   end
 
   #setting attributes
