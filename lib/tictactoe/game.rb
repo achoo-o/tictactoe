@@ -9,7 +9,8 @@ class Game
     while !self.is_game_over?(@board)
       self.show_board(@board)
       puts "Player #{@curr_player}, it's your turn."
-      make_a_move(gets.chomp.strip)
+      make_a_move()
+      update_curr_player
     end
   end
 
@@ -30,8 +31,20 @@ class Game
     end
   end
 
-  def make_a_move(coordinates)
-    puts "Move made"
+  def make_a_move
+    while player_move = gets.chomp.strip
+      if player_move.match(/^[0-2],[0-2]$/) 
+        puts "Valid"
+        break
+      else
+        puts "Please write a valid move in the following format: 0, 1 OR 0,1"
+        puts "REMINDER: 0,0 is the top left position, and 2,2 is the bottom right."
+      end
+    end
+  end
+
+  def update_curr_player
+    if @curr_player == 1 then @curr_player = 2 else @curr_player = 1 end
   end
   #attr_accessor
 end
