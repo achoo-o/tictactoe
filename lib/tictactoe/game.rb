@@ -1,15 +1,15 @@
 class Game
   def initialize()
     @board = [Array.new(3, " "), Array.new(3, " "), Array.new(3, " ")]
-    @curr_player = 1
+    @curr_player = 0
   end
 
-  def play(player_one, player_two)
+  def play(players)
     self.print_header("LET'S PLAY!", 4)
     while !is_game_over?(@board)
       show_board(@board)
-      puts "Player #{@curr_player}, it's your turn."
-      make_a_move(if @curr_player == 1 then player_one.marker else player_two.marker end)
+      puts "Player #{@curr_player + 1}, it's your turn."
+      make_a_move(players[@curr_player].marker)
       update_curr_player
     end
   end
@@ -52,10 +52,10 @@ class Game
   end
 
   def update_curr_player
-    if @curr_player == 1
-      @curr_player = 2
-    else 
+    if @curr_player == 0
       @curr_player = 1
+    else 
+      @curr_player = 0
     end
   end
   #attr_accessor
