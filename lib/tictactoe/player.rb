@@ -19,11 +19,11 @@ class Player
 
   #setting attributes
   def set_marker(input)
-    if input == 'o' or input == 'naughts' then 'O' else 'X' end
+    if input == 'o' or input == 'naughts' then @marker = 'O' else @marker = 'X' end
   end
 
   def set_opposite_marker(input)
-    if input == 'o' then 'x' else 'o' end
+    if input == 'O' then 'X' else 'O' end
   end
 
   def set_marker_name(marker)

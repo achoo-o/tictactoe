@@ -6,10 +6,10 @@ class Game
 
   def play(player_one, player_two)
     self.print_header("LET'S PLAY!", 4)
-    while !self.is_game_over?(@board)
-      self.show_board(@board)
+    while !is_game_over?(@board)
+      show_board(@board)
       puts "Player #{@curr_player}, it's your turn."
-      make_a_move()
+      make_a_move(if @curr_player == 1 then player_one.marker else player_two.marker end)
       update_curr_player
     end
   end
@@ -31,10 +31,10 @@ class Game
     end
   end
 
-  def make_a_move
+  def make_a_move(marker)
     while player_move = gets.chomp.strip
-      if player_move.match(/^[0-2],[0-2]$/) 
-        puts "Valid"
+      if player_move.match(/^[0-2],[0-2]$/) && space_is_free?(player_move[0].to_i, player_move[2].to_i)
+        place_marker(marker, player_move[0].to_i, player_move[2].to_i)
         break
       else
         puts "Please write a valid move in the following format: 0, 1 OR 0,1"
@@ -42,9 +42,21 @@ class Game
       end
     end
   end
+  
+  def space_is_free?(x, y)
+    if ["X","O"].include? @board[x][y] then false else true end
+  end
+
+  def place_marker(marker, x, y)
+    @board[x][y] = marker
+  end
 
   def update_curr_player
-    if @curr_player == 1 then @curr_player = 2 else @curr_player = 1 end
+    if @curr_player == 1
+      @curr_player = 2
+    else 
+      @curr_player = 1
+    end
   end
   #attr_accessor
 end
