@@ -1,16 +1,11 @@
 #First, just write a game in Ruby! Work in what you can, otherwise just start with spaghetti nonsense. We can clean up later.
 require './lib/tictactoe_play'
 
-first_player = Player.new
-puts ("Thanks! Player #1, you've chosen #{first_player.marker_name}.")
-second_player = Player.new(first_player.marker)
-puts ("Player #2, you'll be #{second_player.marker_name}.")
-puts "\n"
-puts "###############"
-puts "  LET'S PLAY!  "
-puts "###############"
-puts "\n"
-
+player_one = Player.new
+puts ("Thanks! Player #1, you've chosen #{player_one.marker_name}.")
+player_two = Player.new(player_one.marker)
+puts ("Player #2, you'll be #{player_two.marker_name}.")
+Game.new.play(player_one, player_two)
 # player = "X"
 # opponent = "O"
 # board = [Array.new(3, " "), Array.new(3, " "), Array.new(3, " ")]
