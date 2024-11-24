@@ -4,15 +4,13 @@ class Game
   end
 
   def play(player_one, player_two)
-    self.print_header("LET'S PLAY!")
+    self.print_header("LET'S PLAY!", 4)
   end
 
-  def print_header(str)
-    puts "\n"
-    puts "#" * (str.length + 4)
-    puts "  #{str}  "
-    puts "#" * (str.length + 4)
-    puts "\n"
+  def print_header(str, padding = 2)
+    line = "#" * (str.length + padding * 2)
+    header = " " * padding + str +  " " * padding
+    puts "\n#{line}\n#{header}\n#{line}\n"
   end
   #attr_accessor
 end
