@@ -27,7 +27,7 @@ class Player
   end
 
   def set_marker_name(marker)
-    if marker == 'o' then 'naughts' else 'crosses' end
+    if marker == 'O' then 'naughts' else 'crosses' end
   end
 
   attr_accessor :marker, :marker_name
