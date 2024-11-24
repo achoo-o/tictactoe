@@ -4,14 +4,14 @@ class Game
   end
 
   def play(player_one, player_two)
-    self.print_start_msg
+    self.print_header("LET'S PLAY!")
   end
 
-  def print_start_msg
+  def print_header(str)
     puts "\n"
-    puts "###############"
-    puts "  LET'S PLAY!  "
-    puts "###############"
+    puts "#" * (str.length + 4)
+    puts "  #{str}  "
+    puts "#" * (str.length + 4)
     puts "\n"
   end
   #attr_accessor
