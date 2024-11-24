@@ -37,7 +37,7 @@ class Game
         place_marker(marker, player_move[0].to_i, player_move[2].to_i)
         break
       else
-        puts "Please write a valid move in the following format: 0, 1 OR 0,1"
+        puts "Please enter a valid coordinate in an empty spot (e.g 0,0 or 0,1)."
         puts "REMINDER: 0,0 is the top left position, and 2,2 is the bottom right."
       end
     end
