@@ -12,14 +12,20 @@ class Game
 
   def play(players)
     self.print_header("LET'S PLAY!", 4)
-    while !is_game_over?(@board)
+    i = 0
+    while !is_game_over?(@board) && i < 9
       show_board(@board)
       puts "Player #{@curr_player + 1}, it's your turn."
       make_a_move(players[@curr_player].marker)
       update_curr_player
+      i += 1
     end
     update_curr_player
-    puts "Congratulations Player ##{@curr_player + 1}! You've won!"
+    if is_game_over? (@board)
+      puts "Congratulations Player ##{@curr_player + 1}! You've won!"
+    else
+      puts "It's a draw."
+    end
   end
 
   def print_header(str, padding = 2)
