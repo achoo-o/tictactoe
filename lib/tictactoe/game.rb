@@ -1,4 +1,10 @@
 class Game
+  WINNING_COMBOS = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], #Horizontal
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], #Vertical
+    [0, 4, 8], [2, 4, 6] #Diagonal 
+  ]    
+
   def initialize()
     @board = [Array.new(3, " "), Array.new(3, " "), Array.new(3, " ")]
     @curr_player = 0
@@ -12,6 +18,8 @@ class Game
       make_a_move(players[@curr_player].marker)
       update_curr_player
     end
+    update_curr_player
+    puts "Congratulations Player ##{@curr_player + 1}! You've won!"
   end
 
   def print_header(str, padding = 2)
@@ -21,6 +29,15 @@ class Game
   end
 
   def is_game_over?(board)
+    board_flat = @board.flatten
+    WINNING_COMBOS.each do |coords|
+      case board_flat.values_at(*coords)
+      when %w(O O O)
+        return true
+      when %w(X X X)
+        return true
+      end
+    end
     false
   end
 
@@ -33,8 +50,10 @@ class Game
 
   def make_a_move(marker)
     while player_move = gets.chomp.strip
-      if player_move.match(/^[0-2],[0-2]$/) && space_is_free?(player_move[0].to_i, player_move[2].to_i)
-        place_marker(marker, player_move[0].to_i, player_move[2].to_i)
+      x = player_move[0].to_i
+      y = player_move[2].to_i
+      if player_move.match(/^[0-2],[0-2]$/) && space_is_free?(x,y)
+        place_marker(marker, x, y)
         break
       else
         puts "Please enter a valid coordinate in an empty spot (e.g 0,0 or 0,1)."
